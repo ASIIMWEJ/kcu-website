@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Welcome back to the King Ceasor University family.">
+<meta name="theme-color" content="#062f1c">
+<title>Alumni | King Ceasor University</title>
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="inner">
+<div id="site-header"></div>
+<main id="main">
+<section class="page-hero"><div class="wrap"><p class="crumbs"><a href="index.html">Home</a> / Alumni</p><span class="eyebrow">Alumni</span><h1>Once KCU, always KCU.</h1><p>Welcome back to the King Ceasor University family.</p></div></section>
+<section class="section "><div class="wrap"><div class="prose"><span class="eyebrow">Once KCU, always KCU</span><h2>Welcome back to the KCU family</h2><p>Our alumni are ambassadors of excellence, shaping communities, industries and lives across Uganda and the world.</p></div><div class="card-grid four"><div class="info-card"><h3>Professional network</h3><p>Meet graduates across law, health sciences, business, technology, public service and entrepreneurship.</p></div><div class="info-card"><h3>Career access</h3><p>Receive career updates, internship leads and employer introductions.</p></div><div class="info-card"><h3>Lifelong learning</h3><p>Join workshops, short courses and research forums hosted by KCU.</p></div><div class="info-card"><h3>Recognition</h3><p>Share your achievements and help KCU celebrate its graduates.</p></div></div></div></section><section class="section alt"><div class="wrap"><span class="eyebrow">Where they are now</span><h2>KCU graduates across key sectors</h2><div class="stats" style="grid-template-columns:repeat(6,1fr)"><div><strong>420+</strong><span>Government</span></div><div><strong>680+</strong><span>Healthcare</span></div><div><strong>260+</strong><span>Banking</span></div><div><strong>190+</strong><span>Technology</span></div><div><strong>300+</strong><span>NGOs</span></div><div><strong>150+</strong><span>Business owners</span></div></div></div></section><section class="section "><div class="wrap"><span class="eyebrow">Notable alumni</span><h2>Stories worth sharing</h2><div class="card-grid"><div class="info-card"><p>“King Ceasor University gave me more than a medical education—it gave me a home where I learned discipline, compassion, and the joy of teaching. Returning as a lecturer has been one of my greatest privileges.”</p><h3>Dr. Mujawimana Alphonsina</h3><small>Paediatrician</small></div><div class="info-card"><p>“Hold onto your curiosity and never underestimate the impact of kindness in medicine. The small things you do for patients today will stay with them forever.”</p><h3>Dr. Hashaka Gerald</h3><small>Gynaecologist</small></div><div class="info-card"><p>“KCU did not just give me a degree; it transformed me into a catalyst for regional economic growth.”</p><h3>Mugisha Brian</h3><small>Business Administrator</small></div></div></div></section><section class="section alt"><div class="wrap"><div class="prose"><span class="eyebrow">Join the network</span><h2>Update your alumni profile</h2><p>Register your details so the alumni office can share events, mentorship opportunities and career leads with you.</p></div><form class="form-grid" id="alumni-form"><label>Full name<input required name="n"></label><label>Student number<input name="s"></label><label>Programme<input name="p"></label><label>Graduation year<input name="y" inputmode="numeric"></label><label>Current employer<input name="e"></label><label>Position<input name="r"></label><label>Country<input name="c"></label><label>Email<input type="email" required name="m"></label><div class="full"><button class="btn" type="submit">Submit alumni profile</button></div></form><p class="form-msg" id="alumni-msg" hidden>Thank you. Your details have been captured on this page; the alumni office will contact you.</p></div></section>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/layout.js" defer></script>
+<script>document.getElementById("alumni-form").addEventListener("submit",function(e){e.preventDefault();document.getElementById("alumni-msg").hidden=false;this.reset()})</script>
+</body>
+</html>

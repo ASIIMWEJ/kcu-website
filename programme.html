@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Programme overview, school, duration and curriculum information at King Ceasor University.">
+<meta name="theme-color" content="#062f1c">
+<title>Programme details | King Ceasor University</title>
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="inner">
+<div id="site-header"></div>
+<main id="main">
+<section class="page-hero has-img programme-hero" style="--hero-img:url('../img/lab-chemistry-students.webp')">
+  <div class="wrap">
+    <p class="crumbs"><a href="index.html">Home</a> / <a href="programmes.html">Programmes</a> / <span id="programme-school-crumb">Schools</span></p>
+    <span class="eyebrow">Programme details</span>
+    <h1 id="programme-title">Explore KCU programmes</h1>
+    <p id="programme-summary">Browse programmes across King Ceasor University’s academic schools.</p>
+  </div>
+</section>
+<section class="section programme-section">
+  <div class="wrap programme-layout">
+    <div class="programme-main" id="programme-content" hidden>
+      <div class="programme-highlights" aria-label="Programme highlights">
+        <div><span>School</span><strong id="programme-school"></strong></div>
+        <div><span>Qualification</span><strong id="programme-level"></strong></div>
+        <div><span>Duration</span><strong id="programme-duration"></strong></div>
+      </div>
+      <div class="programme-tabs" data-tabs>
+        <div class="programme-tab-list" role="tablist" aria-label="Programme information">
+          <button type="button" role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="true">Overview</button>
+          <button type="button" role="tab" id="tab-curriculum" aria-controls="panel-curriculum" aria-selected="false" tabindex="-1">Curriculum</button>
+          <button type="button" role="tab" id="tab-admissions" aria-controls="panel-admissions" aria-selected="false" tabindex="-1">Admissions &amp; fees</button>
+        </div>
+        <section class="programme-panel" role="tabpanel" id="panel-overview" aria-labelledby="tab-overview">
+          <span class="eyebrow">About this programme</span>
+          <h2 id="overview-title"></h2>
+          <p id="overview-description"></p>
+          <p>Contact the relevant school for programme-specific guidance, current intake information and official documentation.</p>
+        </section>
+        <section class="programme-panel" role="tabpanel" id="panel-curriculum" aria-labelledby="tab-curriculum" hidden>
+          <span class="eyebrow">Course units</span>
+          <h2>Curriculum information</h2>
+          <p>The public programme directory does not include approved semester-by-semester course-unit schedules. Contact the school for the current curriculum and course-unit list before making study decisions.</p>
+          <a class="btn" id="curriculum-contact" href="mailto:info@kcu.ac.ug">Request curriculum information <span aria-hidden="true">→</span></a>
+        </section>
+        <section class="programme-panel" role="tabpanel" id="panel-admissions" aria-labelledby="tab-admissions" hidden>
+          <span class="eyebrow">Next steps</span>
+          <h2>Entry requirements and fees</h2>
+          <p>Entry requirements and tuition may vary by programme and applicant pathway. Review KCU’s published guidance and confirm programme-specific details with Admissions.</p>
+          <div class="programme-actions"><a class="btn" href="admissions.html">Admission requirements <span aria-hidden="true">→</span></a><a class="btn gold" href="fees.html">Fees structure <span aria-hidden="true">→</span></a></div>
+        </section>
+      </div>
+    </div>
+    <div class="programme-invalid" id="programme-invalid">
+      <h2>Programme not found</h2>
+      <p>Choose a programme from the course directory to view its details.</p>
+      <a class="btn" href="programmes.html">Browse all programmes <span aria-hidden="true">→</span></a>
+    </div>
+    <aside class="programme-sidebar" id="programme-sidebar" hidden>
+      <section class="programme-side-card">
+        <span class="eyebrow">Explore KCU</span>
+        <h3>Find your next step.</h3>
+        <p>Browse the full directory or learn more about the school offering this programme.</p>
+        <a class="text-link" id="school-link" href="schools.html">Explore this school →</a>
+        <a class="programme-side-button" href="programmes.html">View all programmes <span aria-hidden="true">→</span></a>
+      </section>
+      <section class="programme-side-card programme-side-contact">
+        <h3>Need more information?</h3>
+        <p>Ask KCU for the official course-unit list and current programme requirements.</p>
+        <a class="btn" id="programme-contact" href="mailto:info@kcu.ac.ug">Contact the University</a>
+      </section>
+    </aside>
+  </div>
+</section>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/layout.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(location.search);
+  const schools = {
+    health: { name: 'School of Medicine, Health & Life Sciences', slug: 'health' },
+    law: { name: 'School of Law & Management Sciences', slug: 'law' },
+    science: { name: 'School of Science, Computing & Engineering', slug: 'science' }
+  };
+  const levels = ['Bachelor’s degree', 'Diploma', 'Higher Education Certificate', 'Short course'];
+  const title = (params.get('title') || '').trim();
+  const school = schools[params.get('school')];
+  const level = params.get('level');
+  const duration = params.get('duration');
+  const durationIsValid = /^\d+\s+(Years?|Months?|Weeks?)$/.test(duration || '');
+
+  if (!title || title.length > 180 || !school || !levels.includes(level) || !durationIsValid) return;
+
+  document.title = `${title} | King Ceasor University`;
+  document.getElementById('programme-title').textContent = title;
+  document.getElementById('programme-summary').textContent = `${school.name} · ${level} · ${duration}`;
+  document.getElementById('programme-school-crumb').textContent = school.name;
+  document.getElementById('programme-school').textContent = school.name;
+  document.getElementById('programme-level').textContent = level;
+  document.getElementById('programme-duration').textContent = duration;
+  document.getElementById('overview-title').textContent = title;
+  document.getElementById('overview-description').textContent = `${title} is listed in the KCU course directory under ${school.name}. Contact the school for the official programme outline, course units and current delivery details.`;
+  document.getElementById('school-link').href = `schools.html#${school.slug}`;
+  const subject = encodeURIComponent(`Programme information: ${title}`);
+  document.getElementById('programme-contact').href = `mailto:info@kcu.ac.ug?subject=${subject}`;
+  document.getElementById('curriculum-contact').href = `mailto:info@kcu.ac.ug?subject=${encodeURIComponent(`Course units: ${title}`)}`;
+  document.getElementById('programme-content').hidden = false;
+  document.getElementById('programme-sidebar').hidden = false;
+  document.getElementById('programme-invalid').hidden = true;
+
+  const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+  function activateTab(selected) {
+    tabs.forEach(tab => {
+      const active = tab === selected;
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+      document.getElementById(tab.getAttribute('aria-controls')).hidden = !active;
+    });
+  }
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activateTab(tab));
+    tab.addEventListener('keydown', event => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault();
+      const next = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 :
+        (index + (event.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length;
+      tabs[next].focus();
+      activateTab(tabs[next]);
+    });
+  });
+});
+</script>
+</body>
+</html>

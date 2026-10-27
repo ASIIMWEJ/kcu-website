@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    - export BRANCH=$(git rev-parse --abbrev-ref HEAD)
+    - if [ "$BRANCH" = "main" ]; then export DEPLOYPATH=$HOME/public_html/; else export DEPLOYPATH=$HOME/public_html/staging/; fi
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp -R *.html assets $DEPLOYPATH

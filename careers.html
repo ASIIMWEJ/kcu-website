@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explore academic and professional career opportunities at King Ceasor University.">
+<meta name="theme-color" content="#062f1c">
+<title>Careers | King Ceasor University</title>
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="inner">
+<div id="site-header"></div>
+<main id="main">
+<section class="page-hero has-img careers-hero" style="--hero-img:url('../img/graduates-welcome-group.webp')">
+  <div class="wrap">
+    <p class="crumbs"><a href="index.html">Home</a> / Careers</p>
+    <span class="eyebrow">Careers at KCU</span>
+    <h1>Make a difference with us.</h1>
+    <p>Join a community shaping the future through education, research and service.</p>
+    <div class="careers-meta"><span>King Ceasor University</span><span>Academic &amp; professional opportunities</span></div>
+  </div>
+</section>
+<section class="section career-section">
+  <div class="wrap career-layout">
+    <article class="career-content">
+      <span class="eyebrow">Work with purpose</span>
+      <h2>Build the future of KCU.</h2>
+      <p class="career-intro">At King Ceasor University, talented people help students learn, lead and make a difference. Explore the opportunities below and contact our Careers Office to confirm the status of a vacancy before applying.</p>
+      <div class="career-deadline" role="note"><strong>Application update</strong><span>The published deadline for the vacancies below was 31 July 2026 at 5:00pm. Please email <a href="mailto:careers@kcu.ac.ug">careers@kcu.ac.ug</a> to confirm whether a position is still open.</span></div>
+      <div class="career-list-heading" id="roles">
+        <div><span class="eyebrow">Current listings</span><h2>Career opportunities</h2></div>
+        <p id="career-results" aria-live="polite">Showing 3 opportunities</p>
+      </div>
+      <div class="career-openings">
+        <article class="career-opening" id="academic-leadership" data-department="leadership">
+          <div class="career-opening-meta"><span>Office of the Deputy Vice-Chancellor</span><span>Kampala · Full-time</span></div>
+          <h3>Deputy Vice-Chancellor, Academic Affairs</h3>
+          <p>Provide executive academic leadership and oversee teaching, learning, quality assurance and academic planning across the University.</p>
+          <h4>What you bring</h4>
+          <ul><li>Professor or senior academic rank</li><li>Extensive university academic leadership experience</li><li>A strong record in teaching, research and administration</li></ul>
+          <a class="text-link" href="mailto:careers@kcu.ac.ug?subject=Application%20-%20Deputy%20Vice-Chancellor%2C%20Academic%20Affairs">Enquire about this role <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="career-opening" id="research-leadership" data-department="research">
+          <div class="career-opening-meta"><span>Postgraduate Studies and Research</span><span>Kampala · Full-time</span></div>
+          <h3>Director of Postgraduate Studies and Research</h3>
+          <p>Provide strategic leadership for postgraduate studies, the research agenda, graduate supervision and institutional research output.</p>
+          <h4>What you bring</h4>
+          <ul><li>Senior academic qualifications</li><li>Proven research and postgraduate leadership experience</li><li>A record of funded research or graduate supervision</li></ul>
+          <a class="text-link" href="mailto:careers@kcu.ac.ug?subject=Application%20-%20Director%20of%20Postgraduate%20Studies%20and%20Research">Enquire about this role <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="career-opening" id="nursing-professor" data-department="faculty">
+          <div class="career-opening-meta"><span>School of Medicine, Health &amp; Life Sciences</span><span>Kampala · Full-time</span></div>
+          <h3>Professor – Nursing</h3>
+          <p>Provide academic leadership in nursing, lead high-impact research and mentor faculty and postgraduate students.</p>
+          <h4>What you bring</h4>
+          <ul><li>Professorial rank in nursing or a related field</li><li>A strong record in research and mentorship</li></ul>
+          <a class="text-link" href="mailto:careers@kcu.ac.ug?subject=Application%20-%20Professor%20Nursing">Enquire about this role <span aria-hidden="true">→</span></a>
+        </article>
+        <p class="career-empty" id="career-empty" hidden>No opportunities match your search. Try another keyword or department.</p>
+      </div>
+    </article>
+    <aside class="career-sidebar" aria-label="Career information">
+      <section class="career-widget">
+        <h3>Find an opportunity</h3>
+        <form class="career-search" id="career-search" role="search">
+          <label for="career-keyword">Search by role or keyword</label>
+          <div><input id="career-keyword" type="search" placeholder="e.g. research"><button type="submit" aria-label="Search opportunities">Search</button></div>
+        </form>
+      </section>
+      <section class="career-widget">
+        <h3>Browse departments</h3>
+        <ul class="career-categories">
+          <li><a href="#roles" data-career-filter="all">All opportunities <span>03</span></a></li>
+          <li><a href="#academic-leadership" data-career-filter="leadership">Academic leadership <span>01</span></a></li>
+          <li><a href="#research-leadership" data-career-filter="research">Research <span>01</span></a></li>
+          <li><a href="#nursing-professor" data-career-filter="faculty">Faculty positions <span>01</span></a></li>
+        </ul>
+      </section>
+      <section class="career-widget career-contact">
+        <span class="eyebrow">Careers office</span>
+        <h3>Questions about a vacancy?</h3>
+        <p>Our team can help you confirm vacancy details and application requirements.</p>
+        <a class="btn" href="mailto:careers@kcu.ac.ug">Email Careers Office <span aria-hidden="true">→</span></a>
+      </section>
+    </aside>
+  </div>
+</section>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/layout.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('career-search');
+  const keyword = document.getElementById('career-keyword');
+  const openings = Array.from(document.querySelectorAll('.career-opening'));
+  const empty = document.getElementById('career-empty');
+  const results = document.getElementById('career-results');
+  let department = 'all';
+
+  function filterOpenings() {
+    const query = keyword.value.trim().toLowerCase();
+    let visible = 0;
+    openings.forEach(opening => {
+      const matches = opening.textContent.toLowerCase().includes(query) &&
+        (department === 'all' || opening.dataset.department === department);
+      opening.hidden = !matches;
+      if (matches) visible++;
+    });
+    empty.hidden = visible > 0;
+    results.textContent = `Showing ${visible} ${visible === 1 ? 'opportunity' : 'opportunities'}`;
+  }
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    filterOpenings();
+  });
+  keyword.addEventListener('input', filterOpenings);
+  document.querySelectorAll('[data-career-filter]').forEach(link => {
+    link.addEventListener('click', () => {
+      department = link.dataset.careerFilter;
+      filterOpenings();
+    });
+  });
+});
+</script>
+</body>
+</html>
