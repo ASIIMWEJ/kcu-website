@@ -45,7 +45,7 @@ document.getElementById('undergraduate-link').addEventListener('click', event =>
   slides.forEach((_, n) => { const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', `Go to slide ${n + 1}`); b.addEventListener('click', () => { go(n); restart(); }); dots.appendChild(b); });
   let ready = false;
   const tabsBox = root.querySelector('.hero-tabs');
-  const labels = ['Learn. Lead. Make a difference!', 'Apply today', 'A global network', 'Campus news'];
+  const labels = ['Learn. Lead. Make a difference@', 'Apply today', 'A global network', 'Campus news'];
   const goTo = n => { if (pinned) window.scrollTo({ top: pin.offsetTop + n * window.innerHeight * STEP + 2, behavior: 'smooth' }); else { go(n); restart(); } };
   const tabs = slides.map((_, n) => { const b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'tab'); b.textContent = labels[n] || `Story ${n + 1}`; b.addEventListener('click', () => goTo(n)); tabsBox.appendChild(b); return b; });
   function go(n, dir) {
